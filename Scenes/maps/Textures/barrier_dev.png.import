@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/barrier_dev.png-f66d4cd1fda36f49dea816ddaf336efc.stex"
+path="res://.import/barrier_dev.png-4a9e9a64de7b141e40ce389ee9a5f011.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://maps/Textures/barrier_dev.png"
-dest_files=[ "res://.import/barrier_dev.png-f66d4cd1fda36f49dea816ddaf336efc.stex" ]
+source_file="res://Scenes/maps/Textures/barrier_dev.png"
+dest_files=[ "res://.import/barrier_dev.png-4a9e9a64de7b141e40ce389ee9a5f011.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dummy.bmp-f2fdb760b2a9f16948b28ce21c52e1f1.stex"
+path="res://.import/dummy.bmp-9c08cb278698bf3b39afc5f04da7d915.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Character/dummy.bmp"
-dest_files=[ "res://.import/dummy.bmp-f2fdb760b2a9f16948b28ce21c52e1f1.stex" ]
+source_file="res://Scenes/Characters/Textures/dummy.bmp"
+dest_files=[ "res://.import/dummy.bmp-9c08cb278698bf3b39afc5f04da7d915.stex" ]
 
 [params]
 
