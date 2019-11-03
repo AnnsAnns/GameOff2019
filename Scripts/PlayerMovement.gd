@@ -33,3 +33,6 @@ func dash():
 
 func _on_dash_timer_timeout():
 	is_dashing = false
+
+func _on_Barrier_body_entered(body):
+	print("Hit Barrier")

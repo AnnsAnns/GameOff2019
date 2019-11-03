@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Project Dasher"
-run/main_scene="res://maps/default_map.tscn"
+run/main_scene="res://maps/test.tscn"
 config/icon="res://icon.png"
 
 [input]
