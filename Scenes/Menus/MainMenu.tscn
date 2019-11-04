@@ -1,0 +1,44 @@
+[gd_scene format=2]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 150.0
+margin_top = 150.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+text = "Project Dasher"
+align = 1
+
+[node name="Button_Start" type="Button" parent="VBoxContainer"]
+margin_top = 44.0
+margin_right = 200.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 200, 40 )
+text = "Start"
+
+[node name="Button_Options" type="Button" parent="VBoxContainer"]
+margin_top = 88.0
+margin_right = 200.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 200, 40 )
+text = "Options"
+
+[node name="Button_Credits" type="Button" parent="VBoxContainer"]
+margin_top = 132.0
+margin_right = 200.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 200, 40 )
+text = "Credits"
+
+[node name="Button_Quit" type="Button" parent="VBoxContainer"]
+margin_top = 176.0
+margin_right = 200.0
+margin_bottom = 216.0
+rect_min_size = Vector2( 200, 40 )
+text = "Quit"
