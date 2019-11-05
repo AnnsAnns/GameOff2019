@@ -14,7 +14,13 @@ func _ready():
 
 
 func _on_Button_Resume_pressed():
-	print("unpaused...")
+	var tree = get_tree()
+	# This is very temperamental and should not be used.
+	var game_mode = tree.get_root().get_node("SceneRoot/DasherGameMode")
+	
+	# This will also destroy this menu.
+	game_mode.set_game_paused(false)
+	
 
 
 func _on_Button_Options_pressed():

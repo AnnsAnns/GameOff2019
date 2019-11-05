@@ -6,3 +6,4 @@
 [node name="DasherGameMode" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 hud_class = "res://Scenes/Menus/DasherHUD.tscn"
+pause_menu_class = "res://Scenes/Menus/PauseMenu.tscn"
