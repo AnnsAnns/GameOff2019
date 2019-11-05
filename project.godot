@@ -19,6 +19,10 @@ config/name="Project Dasher"
 run/main_scene="res://Scenes/maps/MainMenuMap.tscn"
 config/icon="res://icon.png"
 
+[debug]
+
+settings/stdout/verbose_stdout=true
+
 [input]
 
 dash={
