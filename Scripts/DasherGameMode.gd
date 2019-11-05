@@ -26,7 +26,7 @@ func set_game_paused(new_is_game_paused):
 		
 		# Hide the game HUD.
 		hud.hide()
-		
+	
 	else:
 		# We are now unpausing.
 		# Destroy the pause menu if it still exists.
@@ -41,8 +41,7 @@ func set_game_paused(new_is_game_paused):
 	
 	# Pause/unpause actual game logic.
 	get_tree().paused = new_is_game_paused
-	
-	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
