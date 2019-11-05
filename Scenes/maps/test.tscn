@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/maps/Textures/barriertile.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Menus/DasherHUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Core/GameModeBase.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 60, 60 )
@@ -13,6 +13,7 @@ extents = Vector2( 60, 60 )
 position = Vector2( 110.755, 440.953 )
 
 [node name="Barrier" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 847.953, 420.007 )
 
 [node name="Sprite" type="Sprite" parent="Barrier"]
@@ -24,9 +25,6 @@ texture = ExtResource( 2 )
 position = Vector2( 36.2696, 46.383 )
 shape = SubResource( 1 )
 
-[node name="DasherHUD" parent="." instance=ExtResource( 3 )]
-margin_left = -759.907
-margin_top = -448.448
-margin_right = -759.907
-margin_bottom = -448.448
+[node name="GameModeBase" parent="." instance=ExtResource( 3 )]
+hud_class = "res://Scenes/Menus/DasherHUD.tscn"
 [connection signal="body_entered" from="Barrier" to="Player" method="_on_Barrier_body_entered"]
