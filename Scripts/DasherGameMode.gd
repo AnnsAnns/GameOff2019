@@ -2,26 +2,28 @@ extends "res://Scripts/GameModeBase.gd"
 
 export var pause_menu_class = ""
 
-var _is_game_paused = false
+## Pre-loaded pause menu scene for less resource loading.
+var _pause_menu_resource
 
 ## Reference to pause menu UI node, if it exists.
 var pause_menu
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	# Preload resource.
+	_pause_menu_resource = load(pause_menu_class)
 	
 func set_game_paused(new_is_game_paused):
-	if _is_game_paused == new_is_game_paused:
-		return
+	var was_paused = get_tree().paused
 	
-	_is_game_paused = new_is_game_paused
+	if was_paused == new_is_game_paused:
+		return
 	
 	if new_is_game_paused:
 		# We now paused the game.
 		
 		# Create the pause menu.
-		pause_menu = load(pause_menu_class).instance()
+		pause_menu = _pause_menu_resource.instance()
 		canvas.add_child(pause_menu)
 		
 		# Hide the game HUD.
