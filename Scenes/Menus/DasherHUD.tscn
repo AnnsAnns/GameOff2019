@@ -3,6 +3,7 @@
 [ext_resource path="res://Scripts/DasherHUD.gd" type="Script" id=1]
 
 [node name="DasherHUD" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -13,4 +14,12 @@ margin_top = 77.4333
 margin_right = 213.462
 margin_bottom = 125.433
 text = "Load Scene"
+
+[node name="Button_Pause" type="Button" parent="."]
+margin_left = 79.4621
+margin_top = 129.625
+margin_right = 213.462
+margin_bottom = 177.625
+text = "Pause"
 [connection signal="pressed" from="Button_LoadScene" to="." method="_on_Button_LoadScene_pressed"]
+[connection signal="pressed" from="Button_Pause" to="." method="_on_Button_Pause_pressed"]

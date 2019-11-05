@@ -15,3 +15,9 @@ func _ready():
 
 func _on_Button_LoadScene_pressed():
 	get_tree().change_scene("res://Scenes/maps/test.tscn")
+
+
+func _on_Button_Pause_pressed():
+	var tree = get_tree()
+	var game_mode = tree.get_root().get_node("SceneRoot/DasherGameMode")
+	game_mode.set_game_paused(not tree.paused)

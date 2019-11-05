@@ -33,6 +33,7 @@ rect_min_size = Vector2( 200, 40 )
 text = "Options"
 
 [node name="Button_Quit" type="Button" parent="VBoxContainer"]
+pause_mode = 2
 margin_top = 132.0
 margin_right = 200.0
 margin_bottom = 172.0
