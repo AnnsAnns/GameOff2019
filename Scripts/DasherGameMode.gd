@@ -19,10 +19,13 @@ func set_game_paused(new_is_game_paused):
 	
 	if new_is_game_paused:
 		# We now paused the game.
-		# Create the pause menu.
 		
+		# Create the pause menu.
 		pause_menu = load(pause_menu_class).instance()
 		canvas.add_child(pause_menu)
+		
+		# Hide the game HUD.
+		hud.hide()
 		
 	else:
 		# We are now unpausing.
@@ -32,6 +35,9 @@ func set_game_paused(new_is_game_paused):
 			pause_menu.hide()
 			canvas.remove_child(pause_menu)
 			pause_menu.queue_free()
+		
+		# Show the game HUD again.
+		hud.show()
 	
 	# Pause/unpause actual game logic.
 	get_tree().paused = new_is_game_paused
