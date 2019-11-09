@@ -19,10 +19,6 @@ config/name="Project Dasher"
 run/main_scene="res://Scenes/maps/test.tscn"
 config/icon="res://icon.png"
 
-[editor_plugins]
-
-enabled=PoolStringArray( "GodotTIE" )
-
 [input]
 
 dash={

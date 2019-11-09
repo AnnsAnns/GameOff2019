@@ -4,8 +4,8 @@
 [ext_resource path="res://Scenes/Characters/Textures/playerbody.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 18.4853
-height = 50.8775
+radius = 15.6505
+height = 3.20885
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -16,7 +16,7 @@ scale = Vector2( 1.34288, 1.40625 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.402497, 0.0699375 )
+position = Vector2( 0.402497, 29.8243 )
 shape = SubResource( 1 )
 
 [node name="dash_timer" type="Timer" parent="."]
