@@ -40,5 +40,12 @@ __meta__ = {
 }
 FONT = SubResource( 2 )
 
-[node name="demos_list" type="OptionButton" parent="."]
-[connection signal="item_selected" from="demos_list" to="." method="_on_demos_list_item_selected"]
+[node name="Button" type="Button" parent="."]
+margin_left = 2.86389
+margin_top = 551.311
+margin_right = 113.864
+margin_bottom = 598.311
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Example Text"
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
