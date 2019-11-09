@@ -47,7 +47,8 @@ func add_item(item_to_add, quantity):
 			
 		inventory[item_to_add] = {"quantity": quantity}
 		emit_signal("on_items_changed")
-		
+
+
 func has_item(item_to_check, min_quantity=1):
 	"""Check whether the inventory has the specified item.
 	
@@ -58,4 +59,7 @@ func has_item(item_to_check, min_quantity=1):
 	:return: (bool) Whether inventory holds this item.
 	"""
 	
+	# Check if key exists.
+	if inventory.has(item_to_check):
+		return inventory[item_to_check] >= min_quantity
 	return false
