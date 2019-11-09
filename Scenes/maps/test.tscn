@@ -9,10 +9,10 @@
 [ext_resource path="res://Scenes/Characters/NPCFriendly.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Menus/DasherHUD.tscn" type="PackedScene" id=8]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 60, 60 )
 
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=2]
 
 [node name="SceneRoot" type="Node2D"]
 script = ExtResource( 1 )
@@ -43,13 +43,13 @@ texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier"]
 position = Vector2( 36.2696, 46.383 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="DasherGameMode" parent="." instance=ExtResource( 6 )]
 
 [node name="TestDummy" parent="." instance=ExtResource( 7 )]
 position = Vector2( -420.519, 275.53 )
-script = SubResource( 4 )
+script = SubResource( 2 )
 
 [node name="DasherHUD" parent="." instance=ExtResource( 8 )]
 [connection signal="body_entered" from="Barrier" to="Player" method="_on_Barrier_body_entered"]
