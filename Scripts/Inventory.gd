@@ -12,12 +12,12 @@ func _get_count():
 	return len(inventory)
 
 
-func add_item(item_to_add, quantity):
+func add_item(item_to_add, quantity=1):
 	"""Add an item to the inventory.
 	
 	:param item_to_add: (string) Name of item to add.
 	
-	:param quantity: (int) Number of items to add.	
+	:param quantity: (int) Number of items to add. Default is 1.
 	"""
 	
 	# Inventory will not change if no items to add.
@@ -62,7 +62,7 @@ func has_item(item_to_check, min_quantity=1):
 	
 	# Check if key exists.
 	if inventory.has(item_to_check):
-		return inventory[item_to_check] >= min_quantity
+		return inventory[item_to_check]["quantity"] >= min_quantity
 	return false
 
 
