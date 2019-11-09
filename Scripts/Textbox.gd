@@ -2,37 +2,19 @@ extends Control
 
 onready var tie = get_node("panel/text_interface_engine")
 
-func select_demo(i):
-	tie.reset()
-	if(i == 1):
-		# "A Beautiful Song"
-		# by Henrique Alves
-		tie.set_color(Color(1,1,1))
-		# Buff text: "Text", duration (in seconds) of each letter
-		tie.buff_text("Test Text, Text Test", 0.1)
-		tie.buff_text("lalala\n", 0.2)
-		# Buff silence: Duration of the silence (in seconds)
-		tie.buff_silence(1)
-	elif(i == 2):
-		tie.set_color(Color(1,1,0.3))
-		# If velocity is 0, than whole text is printed 
-		tie.buff_text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras semper finibus sapien, ut fringilla nulla vehicula ac. In hac habitasse platea dictumst. Nulla lobortis tempus sem vel lobortis. Mauris facilisis mollis nunc, vitae aliquet dui dictum id. Nullam ultricies facilisis interdum. Ut id semper eros, in lobortis diam. Nam consequat, dolor pharetra imperdiet finibus, lacus turpis tincidunt velit, ut fringilla ligula orci et justo. Praesent sagittis lectus eu metus faucibus aliquam. Donec sollicitudin porttitor massa a mollis. Nulla eleifend orci lacus, et tristique dui viverra eu. Sed nec mollis ligula. Quisque eu tellus libero. Nulla id hendrerit mauris.",0)
-	elif(i == 3):
-		tie.set_color(Color(0.3,1,1))
-		# Schedule an Input in the buffer, after all
-		# the text before it is displayed
-		tie.buff_text("Hey there!! What's your name?\n", 0.01)
-		tie.buff_input()
+func demo_text():
+	tie.reset() # Resets textbox
+	tie.set_color(Color(1,1,1)) # Sets Text Colour
+	# Buff text: "Text", duration (in seconds) of each letter
+	tie.buff_text("Test Text, Text Test\n", 0.1)
+	tie.buff_text("lalala\n", 0.3)
+	# Buff silence: Duration of the silence (in seconds)
+	tie.buff_silence(1)
+	tie.buff_text("Enter Input: ", 0.01)
+	tie.buff_input()
 	tie.set_state(tie.STATE_OUTPUT)
 
 func _ready():
-	# Add the demos in the list
-	get_node("demos_list").set_focus_mode(0)
-	get_node("demos_list").add_item("No demo")
-	get_node("demos_list").add_item("DEMO_Music")
-	get_node("demos_list").add_item("DEMO_Ipsum")
-	get_node("demos_list").add_item("DEMO_Input")
-	
 	# Connect every signal to check them using the "print()" method
 	tie.connect("input_enter", self, "_on_input_enter")
 	tie.connect("buff_end", self, "_on_buff_end")
@@ -42,14 +24,11 @@ func _ready():
 	tie.connect("tag_buff", self, "_on_tag_buff")
 	pass
 
-func _on_demos_list_item_selected( ID ):
-	select_demo(ID)
-
 func _on_input_enter(s):
 	print("Input Enter ",s)
 	
 	tie.add_newline()
-	tie.buff_text("Oooh, so your name is " + s + "? What a beautiful name!", 0.01)
+	tie.buff_text("Your inpute was: " + s, 0.01)
 	pass
 
 func _on_buff_end():
@@ -71,3 +50,6 @@ func _on_resume_break():
 func _on_tag_buff(s):
 	print("Tag Buff ",s)
 	pass
+
+func _on_Button_pressed():
+	demo_text()

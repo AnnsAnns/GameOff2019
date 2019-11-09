@@ -45,7 +45,7 @@ func add_item(item_to_add, quantity):
 		if quantity <= 0:
 			return
 			
-		inventory[item_to_add] = {"quantity": quantity}
+		inventory[item_to_add] = {"item": item_to_add, "quantity": quantity}
 		emit_signal("on_items_changed")
 
 
@@ -55,6 +55,7 @@ func has_item(item_to_check, min_quantity=1):
 	:param item_to_check: (string) Name of item to check.
 	
 	:param quantity: (int) Require at least this many items.
+	By default only a single instance is required.
 	
 	:return: (bool) Whether inventory holds this item.
 	"""
@@ -63,3 +64,35 @@ func has_item(item_to_check, min_quantity=1):
 	if inventory.has(item_to_check):
 		return inventory[item_to_check] >= min_quantity
 	return false
+
+
+func remove_item(item_to_remove, quantity=null):
+	"""Remove the specified item from the inventory.
+	
+	:param item_to_remove: (string) Name of item to remove.
+	
+	:param quantity: (int) How much to remove. If omitted, all
+	instances of the item will removed.
+	"""
+	
+	
+	if quantity == null:
+		# Remove all instances of item_to_remove.
+		quantity = -9999999
+	
+	elif quantity == 0:
+		# If quantity is specified and is zero, do NOTHING!
+		return
+	
+	else:
+		# Adding a negative quantity is the same as removing.
+		quantity = -quantity
+	
+	add_item(item_to_remove, quantity)
+
+
+func print_contents():
+	print("Printing inventory...")
+	for item in inventory.values():
+		print("   item: " + str(item))
+	print("End of inventory")
