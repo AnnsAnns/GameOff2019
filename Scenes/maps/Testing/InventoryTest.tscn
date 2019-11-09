@@ -1,0 +1,92 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Inventory.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Testing/InventoryTest.gd" type="Script" id=2]
+
+[node name="InventoryTest" type="Node2D"]
+
+[node name="InventoryComponent" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="InventoryTestComponent" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="QuickMenu" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuickMenu"]
+margin_left = 95.0
+margin_top = 106.0
+margin_right = 372.0
+margin_bottom = 267.0
+
+[node name="Label" type="Label" parent="QuickMenu/VBoxContainer"]
+margin_right = 277.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+text = "Inventory Test"
+align = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="QuickMenu/VBoxContainer"]
+margin_top = 44.0
+margin_right = 277.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="Label" type="Label" parent="QuickMenu/VBoxContainer/HBoxContainer2"]
+margin_top = 3.0
+margin_right = 73.0
+margin_bottom = 17.0
+text = "Item Name"
+
+[node name="EntryItemName" type="TextEdit" parent="QuickMenu/VBoxContainer/HBoxContainer2"]
+margin_left = 77.0
+margin_right = 277.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 20 )
+
+[node name="Label2" type="Label" parent="QuickMenu/VBoxContainer"]
+margin_top = 68.0
+margin_right = 277.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 0, 20 )
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="QuickMenu/VBoxContainer"]
+margin_top = 92.0
+margin_right = 277.0
+margin_bottom = 112.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="ButtonAdd" type="Button" parent="QuickMenu/VBoxContainer/HBoxContainer"]
+margin_right = 85.12
+margin_bottom = 20.0
+rect_min_size = Vector2( 85.12, 0 )
+text = "Add Item"
+
+[node name="ButtonHas" type="Button" parent="QuickMenu/VBoxContainer/HBoxContainer"]
+margin_left = 89.0
+margin_right = 174.12
+margin_bottom = 20.0
+rect_min_size = Vector2( 85.12, 0 )
+text = "Has Item"
+
+[node name="ButtonRemove" type="Button" parent="QuickMenu/VBoxContainer/HBoxContainer"]
+margin_left = 178.0
+margin_right = 277.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 85.12, 0 )
+text = "Remove Item"
+
+[node name="LabelMessage" type="Label" parent="QuickMenu/VBoxContainer"]
+margin_top = 116.0
+margin_right = 277.0
+margin_bottom = 156.0
+rect_min_size = Vector2( 0, 40 )
+text = "Message"
+align = 1
+valign = 2
+[connection signal="pressed" from="QuickMenu/VBoxContainer/HBoxContainer/ButtonAdd" to="InventoryTestComponent" method="_on_ButtonAdd_pressed"]
+[connection signal="pressed" from="QuickMenu/VBoxContainer/HBoxContainer/ButtonHas" to="InventoryTestComponent" method="_on_ButtonHas_pressed"]
+[connection signal="pressed" from="QuickMenu/VBoxContainer/HBoxContainer/ButtonRemove" to="InventoryTestComponent" method="_on_ButtonRemove_pressed"]
