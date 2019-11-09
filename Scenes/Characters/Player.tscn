@@ -20,5 +20,5 @@ position = Vector2( 0.402497, 0.0699375 )
 shape = SubResource( 1 )
 
 [node name="dash_timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.0
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
