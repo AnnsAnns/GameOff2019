@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/DasherHUD.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Menus/Textbox.tscn" type="PackedScene" id=2]
 
 [node name="DasherHUD" type="Control"]
 pause_mode = 2
@@ -8,9 +9,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 
-[node name="Button_Pause" type="Button" parent="."]
-margin_left = 50.0
-margin_top = 50.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Textbox" parent="CanvasLayer" instance=ExtResource( 2 )]
+visible = false
+margin_left = -2.27441
+margin_top = 1.16638
+margin_right = -2.27441
+margin_bottom = 1.16638
+
+[node name="Button_Pause" type="Button" parent="CanvasLayer"]
+margin_left = 31.1634
+margin_top = 26.7313
+margin_right = 231.163
+margin_bottom = 66.7313
 rect_min_size = Vector2( 200, 40 )
+focus_mode = 0
+enabled_focus_mode = 0
 text = "Pause"
-[connection signal="pressed" from="Button_Pause" to="." method="_on_Button_Pause_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button_Pause" to="." method="_on_Button_Pause_pressed"]

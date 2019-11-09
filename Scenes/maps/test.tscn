@@ -1,44 +1,55 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Tilesets/FloorTiles.tres" type="TileSet" id=1]
-[ext_resource path="res://Tilesets/ AutoTileWalls.tres" type="TileSet" id=2]
-[ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/maps/Textures/barriertile.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Core/DasherGameMode.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/TestScene.gd" type="Script" id=1]
+[ext_resource path="res://Tilesets/FloorTiles.tres" type="TileSet" id=2]
+[ext_resource path="res://Tilesets/ AutoTileWalls.tres" type="TileSet" id=3]
+[ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/maps/Textures/barriertile.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Core/DasherGameMode.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Characters/NPCFriendly.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Menus/DasherHUD.tscn" type="PackedScene" id=8]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 60, 60 )
 
+[sub_resource type="GDScript" id=4]
+
 [node name="SceneRoot" type="Node2D"]
+script = ExtResource( 1 )
 
 [node name="Floors" type="TileMap" parent="."]
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 format = 1
 tile_data = PoolIntArray( 262136, 0, 0, 262137, 0, 0, 262138, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 327672, 0, 0, 327673, 0, 0, 327674, 0, 0, 327675, 0, 0, 327676, 0, 0, 327677, 0, 0, 327678, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 393208, 0, 0, 393209, 0, 0, 393210, 0, 0, 393211, 0, 0, 393212, 0, 0, 393213, 0, 0, 393214, 0, 0, 393215, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 458744, 0, 0, 458745, 0, 0, 458746, 0, 0, 458747, 0, 0, 458748, 0, 0, 458749, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 524280, 0, 0, 524281, 0, 0, 524282, 0, 0, 524283, 0, 0, 524284, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 589816, 0, 0, 589817, 0, 0, 589818, 0, 0, 589819, 0, 0, 589820, 0, 0, 589821, 0, 0, 589822, 0, 0, 589823, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 655352, 0, 0, 655353, 0, 0, 655354, 0, 0, 655355, 0, 0, 655356, 0, 0, 655357, 0, 0, 655358, 0, 0, 655359, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 720888, 0, 0, 720889, 0, 0, 720890, 0, 0, 720891, 0, 0, 720892, 0, 0, 720893, 0, 0, 720894, 0, 0, 720895, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 786424, 0, 0, 786425, 0, 0, 786426, 0, 0, 786427, 0, 0, 786428, 0, 0, 786429, 0, 0, 786430, 0, 0, 786431, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0 )
 
 [node name="Walls" type="TileMap" parent="."]
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 format = 1
 tile_data = PoolIntArray( 196599, 0, 0, 196600, 0, 2, 196601, 0, 2, 196602, 0, 2, 196603, 0, 2, 196604, 0, 2, 196605, 0, 2, 196606, 0, 2, 196607, 0, 2, 131072, 0, 2, 131073, 0, 2, 131074, 0, 2, 131075, 0, 2, 131076, 0, 2, 131077, 0, 2, 131078, 0, 2, 131079, 0, 2, 131080, 0, 3, 131081, 0, 2, 131082, 0, 2, 131083, 0, 2, 131084, 0, 3, 131085, 0, 2, 131086, 0, 2, 131087, 0, 2, 131088, 0, 1, 262135, 0, 65538, 196616, 0, 65538, 196620, 0, 6, 196624, 0, 65538, 327671, 0, 65538, 262152, 0, 6, 262160, 0, 65538, 393207, 0, 65538, 327686, 0, 65541, 327696, 0, 65538, 458743, 0, 65538, 393222, 0, 65536, 393223, 0, 2, 393224, 0, 2, 393225, 0, 5, 393232, 0, 65536, 393233, 0, 1, 524279, 0, 65538, 458769, 0, 65538, 589815, 0, 65538, 524305, 0, 65538, 655351, 0, 65538, 589833, 0, 65541, 589841, 0, 65538, 720887, 0, 65538, 655369, 0, 65538, 655376, 0, 0, 655377, 0, 65537, 786423, 0, 65538, 720905, 0, 65538, 720912, 0, 65538, 851959, 0, 65536, 851960, 0, 2, 851961, 0, 2, 851962, 0, 2, 851963, 0, 2, 851964, 0, 2, 851965, 0, 2, 851966, 0, 2, 851967, 0, 2, 786432, 0, 2, 786433, 0, 2, 786434, 0, 2, 786435, 0, 2, 786436, 0, 2, 786437, 0, 2, 786438, 0, 2, 786439, 0, 2, 786440, 0, 2, 786441, 0, 4, 786442, 0, 2, 786443, 0, 2, 786444, 0, 2, 786445, 0, 2, 786446, 0, 2, 786447, 0, 2, 786448, 0, 65537 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 110.755, 440.953 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 
 [node name="Barrier" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 847.953, 420.007 )
 
 [node name="Sprite" type="Sprite" parent="Barrier"]
 position = Vector2( 36.5172, 46.4458 )
 scale = Vector2( 1.92971, 2.00439 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier"]
 position = Vector2( 36.2696, 46.383 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
-[node name="DasherGameMode" parent="." instance=ExtResource( 5 )]
+[node name="DasherGameMode" parent="." instance=ExtResource( 6 )]
+
+[node name="TestDummy" parent="." instance=ExtResource( 7 )]
+position = Vector2( -420.519, 275.53 )
+script = SubResource( 4 )
+
+[node name="DasherHUD" parent="." instance=ExtResource( 8 )]
 [connection signal="body_entered" from="Barrier" to="Player" method="_on_Barrier_body_entered"]

@@ -12,12 +12,12 @@ func _get_count():
 	return len(inventory)
 
 
-func add_item(item_to_add, quantity):
+func add_item(item_to_add, quantity=1):
 	"""Add an item to the inventory.
 	
 	:param item_to_add: (string) Name of item to add.
 	
-	:param quantity: (int) Number of items to add.	
+	:param quantity: (int) Number of items to add. Default is 1.
 	"""
 	
 	# Inventory will not change if no items to add.
@@ -62,7 +62,7 @@ func has_item(item_to_check, min_quantity=1):
 	
 	# Check if key exists.
 	if inventory.has(item_to_check):
-		return inventory[item_to_check] >= min_quantity
+		return inventory[item_to_check]["quantity"] >= min_quantity
 	return false
 
 
@@ -96,3 +96,21 @@ func print_contents():
 	for item in inventory.values():
 		print("   item: " + str(item))
 	print("End of inventory")
+
+
+func to_dict():
+	"""Return a dictionary of items to be serialised.
+	
+	:return: (Dictionary) Item: {'item': Item, 'quantity': Quantity}.
+	"""
+	return inventory.duplicate()
+
+
+func from_dict(loaded_items):
+	"""Set items from a serialised dictionary of items.
+	
+	:param loaded_items: (Dictionary) Parsed JSON data.
+	"""
+	
+	inventory = loaded_items.duplicate()
+	emit_signal("on_items_changed")
