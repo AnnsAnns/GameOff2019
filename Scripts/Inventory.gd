@@ -96,3 +96,21 @@ func print_contents():
 	for item in inventory.values():
 		print("   item: " + str(item))
 	print("End of inventory")
+
+
+func to_dict():
+	"""Return a dictionary of items to be serialised.
+	
+	:return: (Dictionary) Item: {'item': Item, 'quantity': Quantity}.
+	"""
+	return inventory.duplicate()
+
+
+func from_dict(loaded_items):
+	"""Set items from a serialised dictionary of items.
+	
+	:param loaded_items: (Dictionary) Parsed JSON data.
+	"""
+	
+	inventory = loaded_items.duplicate()
+	emit_signal("on_items_changed")
