@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/TestScene.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/FloorTiles.tres" type="TileSet" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/Core/DasherGameMode.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Characters/NPCFriendly.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Menus/DasherHUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/maps/Door.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 60, 60 )
@@ -52,4 +53,8 @@ position = Vector2( -411.494, 283.653 )
 script = SubResource( 2 )
 
 [node name="DasherHUD" parent="." instance=ExtResource( 8 )]
+
+[node name="Door" parent="." instance=ExtResource( 9 )]
+position = Vector2( 544.209, 351.138 )
+rotation = 1.5708
 [connection signal="body_entered" from="Barrier" to="Player" method="_on_Barrier_body_entered"]
