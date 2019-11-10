@@ -5,7 +5,7 @@ var is_dashing = false
 var velocity = Vector2()
 
 func get_input():
-	speed = 200
+	speed = 400
 	velocity = Vector2()	
 	
 	if Input.is_action_pressed('right'):
@@ -20,8 +20,22 @@ func get_input():
 	if Input.is_action_pressed("dash") and !is_dashing:
 		dash()
 	
-	velocity = velocity.normalized() * speed
-
+	if velocity.length() > 0:
+		velocity = velocity.normalized() * speed
+	
+	if is_dashing and (velocity.x != 0 or velocity.y != 0):
+		$AnimatedSprite.animation = "dash"
+		$AnimatedSprite.flip_h = velocity.x < 0
+	elif is_dashing:
+		pass # TO-DO: Add Idle Animation for dashing cooldown
+	elif velocity.x != 0:
+	    $AnimatedSprite.animation = "run"
+	    $AnimatedSprite.flip_h = velocity.x < 0
+	elif velocity.y != 0:
+		$AnimatedSprite.animation = "run"
+	else:
+		$AnimatedSprite.animation = "idle"
+	
 func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)

@@ -1,18 +1,61 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Characters/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Characters/Textures/npcfriendly.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Characters/Textures/CharacterWizard/wizzard_m_idle_anim_f0.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Characters/Textures/CharacterWizard/wizzard_m_idle_anim_f1.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Characters/Textures/CharacterWizard/wizzard_m_idle_anim_f2.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Characters/Textures/CharacterWizard/wizzard_m_idle_anim_f3.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Characters/Textures/CharacterWizard/wizzard_m_run_anim_f0.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Characters/Textures/CharacterWizard/wizzard_m_run_anim_f1.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Characters/Textures/CharacterWizard/wizzard_m_run_anim_f2.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Characters/Textures/CharacterWizard/wizzard_m_run_anim_f3.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Characters/Textures/CharacterWizard/wizzard_m_hit_anim_f0.png" type="Texture" id=11]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 82.0808
-height = 33.8626
+radius = 107.588
+height = 29.6101
 
-[node name="Npcfriendly" instance=ExtResource( 1 )]
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "hit",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 23.7759, 18.4501 )
+
+[node name="Npcfriendly" index="0" instance=ExtResource( 1 )]
+position = Vector2( 10.5709, 5.79916 )
 
 [node name="Sprite" parent="." index="0"]
+visible = false
 texture = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="." index="1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
+position = Vector2( -2.01256, -14.6283 )
+scale = Vector2( 3.81297, 3.81297 )
+frames = SubResource( 2 )
+animation = "idle"
+playing = true
+
+[node name="CollisionShape2D" parent="." index="3"]
+position = Vector2( -3.05176e-005, 21.8469 )
+shape = SubResource( 3 )

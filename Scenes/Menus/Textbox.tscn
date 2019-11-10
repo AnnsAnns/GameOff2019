@@ -22,10 +22,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -341.817
-margin_top = 219.636
-margin_right = 406.183
-margin_bottom = 499.636
+margin_left = -365.517
+margin_top = 141.518
+margin_right = 382.483
+margin_bottom = 300.518
 
 [node name="InputBox" type="ReferenceRect" parent="panel"]
 anchor_right = 1.0

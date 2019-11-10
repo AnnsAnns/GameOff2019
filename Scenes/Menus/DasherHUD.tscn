@@ -15,10 +15,10 @@ script = ExtResource( 1 )
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -2.27441
-margin_top = 1.16638
-margin_right = 1021.73
-margin_bottom = 601.166
+margin_left = 0.310303
+margin_top = -1.41833
+margin_right = 1024.31
+margin_bottom = 598.582
 grow_horizontal = 2
 grow_vertical = 2
 
