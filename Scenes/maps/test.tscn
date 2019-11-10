@@ -49,7 +49,7 @@ shape = SubResource( 1 )
 [node name="DasherGameMode" parent="." instance=ExtResource( 6 )]
 
 [node name="TestDummy" parent="." instance=ExtResource( 7 )]
-position = Vector2( -420.519, 275.53 )
+position = Vector2( -411.494, 283.653 )
 script = SubResource( 2 )
 
 [node name="DasherHUD" parent="." instance=ExtResource( 8 )]
