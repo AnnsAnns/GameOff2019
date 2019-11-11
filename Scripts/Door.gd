@@ -9,20 +9,24 @@ func _on_Door_body_entered(body):
 		open()
 	else:
 		can_click = true
-	pass
+
 
 func _on_Door_body_exited(body):
 	if body == Global.Player:
 		can_click = false
-	pass
+
 
 func open():
-	$AnimationPlayer.plau("open")
+	$AnimationPlayer.play("open")
 
-func _input_event(viewport, event, shape_idx)
-	if Input.is_key_pressed()
+func _physics_process(delta):
+	get_input()
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
+func get_input():
+	if Input.is_action_pressed("interact") and can_click:
+		open()
