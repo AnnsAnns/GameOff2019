@@ -4,6 +4,9 @@ var speed
 var is_dashing = false
 var velocity = Vector2()
 
+func _ready():
+	Global.Player = self
+
 func get_input():
 	speed = 400
 	velocity = Vector2()	
