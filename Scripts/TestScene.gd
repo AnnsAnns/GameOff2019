@@ -25,3 +25,10 @@ func NPC_textbox():
 func _process(delta):
 	# Check if player is inside the Area2D, somebody should really find a better way to do this lmao
 	NPC_textbox()
+
+func _on_Player_dash_against_wall():
+	pass
+
+func _on_Door_body_entered(body):
+	if body == $Player:
+		print("Door entered")

@@ -37,8 +37,9 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 23.7759, 18.4501 )
 
-[node name="Npcfriendly" index="0" instance=ExtResource( 1 )]
+[node name="Npcfriendly" instance=ExtResource( 1 )]
 position = Vector2( 10.5709, 5.79916 )
+collision_layer = 2
 
 [node name="Sprite" parent="." index="0"]
 visible = false
@@ -59,3 +60,4 @@ playing = true
 [node name="CollisionShape2D" parent="." index="3"]
 position = Vector2( -3.05176e-005, 21.8469 )
 shape = SubResource( 3 )
+disabled = true

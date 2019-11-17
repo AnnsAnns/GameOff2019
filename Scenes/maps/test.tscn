@@ -5,8 +5,8 @@
 [ext_resource path="res://Tilesets/ AutoTileWalls.tres" type="TileSet" id=3]
 [ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/maps/Textures/barriertile.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/Core/DasherGameMode.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Characters/NPCFriendly.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Characters/NPCFriendly.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Core/DasherGameMode.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Menus/DasherHUD.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/maps/Door.tscn" type="PackedScene" id=9]
 
@@ -30,30 +30,28 @@ format = 1
 tile_data = PoolIntArray( 196599, 0, 0, 196600, 0, 2, 196601, 0, 2, 196602, 0, 2, 196603, 0, 2, 196604, 0, 2, 196605, 0, 2, 196606, 0, 2, 196607, 0, 2, 131072, 0, 2, 131073, 0, 2, 131074, 0, 2, 131075, 0, 2, 131076, 0, 2, 131077, 0, 2, 131078, 0, 2, 131079, 0, 2, 131080, 0, 3, 131081, 0, 2, 131082, 0, 2, 131083, 0, 2, 131084, 0, 3, 131085, 0, 2, 131086, 0, 2, 131087, 0, 2, 131088, 0, 1, 262135, 0, 65538, 196616, 0, 65538, 196620, 0, 6, 196624, 0, 65538, 327671, 0, 65538, 262152, 0, 6, 262160, 0, 65538, 393207, 0, 65538, 327686, 0, 65541, 327696, 0, 65538, 458743, 0, 65538, 393222, 0, 65536, 393223, 0, 2, 393224, 0, 2, 393225, 0, 5, 393232, 0, 65536, 393233, 0, 1, 524279, 0, 65538, 458769, 0, 65538, 589815, 0, 65538, 524305, 0, 65538, 655351, 0, 65538, 589833, 0, 65541, 589841, 0, 65538, 720887, 0, 65538, 655369, 0, 65538, 655376, 0, 0, 655377, 0, 65537, 786423, 0, 65538, 720905, 0, 65538, 720912, 0, 65538, 851959, 0, 65536, 851960, 0, 2, 851961, 0, 2, 851962, 0, 2, 851963, 0, 2, 851964, 0, 2, 851965, 0, 2, 851966, 0, 2, 851967, 0, 2, 786432, 0, 2, 786433, 0, 2, 786434, 0, 2, 786435, 0, 2, 786436, 0, 2, 786437, 0, 2, 786438, 0, 2, 786439, 0, 2, 786440, 0, 2, 786441, 0, 4, 786442, 0, 2, 786443, 0, 2, 786444, 0, 2, 786445, 0, 2, 786446, 0, 2, 786447, 0, 2, 786448, 0, 65537 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-editor/display_folded = true
 position = Vector2( 110.755, 440.953 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 
-[node name="Barrier" type="Area2D" parent="."]
-editor/display_folded = true
+[node name="Door" type="Area2D" parent="."]
 position = Vector2( 847.953, 420.007 )
 
-[node name="Sprite" type="Sprite" parent="Barrier"]
+[node name="Sprite" type="Sprite" parent="Door"]
 position = Vector2( 36.5172, 46.4458 )
 scale = Vector2( 1.92971, 2.00439 )
 texture = ExtResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrier"]
-position = Vector2( 36.2696, 46.383 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2( 37.2696, 46.383 )
 shape = SubResource( 1 )
 
-[node name="DasherGameMode" parent="." instance=ExtResource( 6 )]
-
-[node name="TestDummy" parent="." instance=ExtResource( 7 )]
+[node name="TestDummy" parent="." instance=ExtResource( 6 )]
 position = Vector2( -420.519, 275.53 )
 script = SubResource( 2 )
+
+[node name="DasherGameMode" parent="." instance=ExtResource( 7 )]
 
 [node name="DasherHUD" parent="." instance=ExtResource( 8 )]
 
@@ -63,4 +61,5 @@ script = SubResource( 2 )
 position = Vector2( 608.993, 575.861 )
 rotation = -1.5708
 scale = Vector2( 2, 2 )
-[connection signal="body_entered" from="Barrier" to="Player" method="_on_Barrier_body_entered"]
+[connection signal="dash_against_wall" from="Player" to="." method="_on_Player_dash_against_wall"]
+[connection signal="body_entered" from="Door" to="." method="_on_Door_body_entered"]
