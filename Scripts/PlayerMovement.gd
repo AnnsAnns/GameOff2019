@@ -7,7 +7,7 @@ var is_dashing = false
 var velocity = Vector2()
 
 var normal_speed = 400
-var dash_speed = 10000
+var dash_speed = 6000
 
 func _ready():
 	Global.Player = self
@@ -27,6 +27,7 @@ func get_input(delta):
 	
 	if Input.is_action_pressed("dash") and !is_dashing and velocity.length() > 0:
 		dash()
+	
 	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed

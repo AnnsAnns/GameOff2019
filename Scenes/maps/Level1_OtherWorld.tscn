@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Tilesets/ AutoTileWalls.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilesets/FloorTiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Core/DasherGameMode.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/ShaderOtherWorld.scn" type="PackedScene" id=5]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -29,4 +30,6 @@ tile_data = PoolIntArray( -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 
 position = Vector2( 645.662, 318.384 )
 
 [node name="DasherGameMode" parent="." instance=ExtResource( 4 )]
+
+[node name="Shader_OtherWorld" parent="." instance=ExtResource( 5 )]
 [connection signal="dash_against_wall" from="Player" to="." method="_on_Player_dash_against_wall"]
