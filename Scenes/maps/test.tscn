@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/TestScene.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/FloorTiles.tres" type="TileSet" id=2]
@@ -7,8 +7,7 @@
 [ext_resource path="res://Scenes/maps/Textures/barriertile.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Characters/NPCFriendly.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Core/DasherGameMode.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Menus/DasherHUD.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/maps/Door.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/maps/Door.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 60, 60 )
@@ -32,18 +31,15 @@ tile_data = PoolIntArray( 196599, 0, 0, 196600, 0, 2, 196601, 0, 2, 196602, 0, 2
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 110.755, 440.953 )
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-current = true
-
-[node name="Door" type="Area2D" parent="."]
+[node name="DoorEnter" type="Area2D" parent="."]
 position = Vector2( 847.953, 420.007 )
 
-[node name="Sprite" type="Sprite" parent="Door"]
+[node name="Sprite" type="Sprite" parent="DoorEnter"]
 position = Vector2( 36.5172, 46.4458 )
 scale = Vector2( 1.92971, 2.00439 )
 texture = ExtResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorEnter"]
 position = Vector2( 37.2696, 46.383 )
 shape = SubResource( 1 )
 
@@ -53,13 +49,11 @@ script = SubResource( 2 )
 
 [node name="DasherGameMode" parent="." instance=ExtResource( 7 )]
 
-[node name="DasherHUD" parent="." instance=ExtResource( 8 )]
-
 [node name="Doors" type="Node2D" parent="."]
 
-[node name="Door2" parent="Doors" instance=ExtResource( 9 )]
+[node name="Door2" parent="Doors" instance=ExtResource( 8 )]
 position = Vector2( 608.993, 575.861 )
 rotation = -1.5708
 scale = Vector2( 2, 2 )
 [connection signal="dash_against_wall" from="Player" to="." method="_on_Player_dash_against_wall"]
-[connection signal="body_entered" from="Door" to="." method="_on_Door_body_entered"]
+[connection signal="body_entered" from="DoorEnter" to="." method="_on_Door_body_entered"]

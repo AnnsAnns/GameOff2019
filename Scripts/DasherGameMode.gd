@@ -8,6 +8,8 @@ var _pause_menu_resource
 ## Reference to pause menu UI node, if it exists.
 var pause_menu
 
+onready var tree = get_tree()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Preload resource.
@@ -44,7 +46,7 @@ func set_game_paused(new_is_game_paused):
 	# Pause/unpause actual game logic.
 	get_tree().paused = new_is_game_paused
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if Input.is_action_pressed("ui_cancel") and $Cooldown.time_left == 0: # Save resources by first checking ui_cancel
+		set_game_paused(not tree.paused)
+		$Cooldown.start()

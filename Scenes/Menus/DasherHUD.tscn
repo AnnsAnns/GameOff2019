@@ -21,14 +21,3 @@ margin_right = 1024.31
 margin_bottom = 598.582
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Button_Pause" type="Button" parent="CanvasLayer"]
-margin_left = 31.1634
-margin_top = 26.7313
-margin_right = 231.163
-margin_bottom = 66.7313
-rect_min_size = Vector2( 200, 40 )
-focus_mode = 0
-enabled_focus_mode = 0
-text = "Pause"
-[connection signal="pressed" from="CanvasLayer/Button_Pause" to="." method="_on_Button_Pause_pressed"]

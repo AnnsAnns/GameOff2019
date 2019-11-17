@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Tilesets/ AutoTileWalls.tres" type="TileSet" id=2]
+[ext_resource path="res://Tilesets/FloorTiles.tres" type="TileSet" id=3]
+[ext_resource path="res://Scenes/Core/DasherGameMode.tscn" type="PackedScene" id=4]
+
+[node name="SceneRoot" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 510.377, 301.682 )
+
+[node name="Walls" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+format = 1
+
+[node name="Floor" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+format = 1
+
+[node name="DasherGameMode" parent="." instance=ExtResource( 4 )]
