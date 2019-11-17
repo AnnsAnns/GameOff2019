@@ -5,14 +5,14 @@
 [ext_resource path="res://Scenes/Characters/Textures/Player/knight_m_idle_anim_f1.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Characters/Textures/Player/knight_m_idle_anim_f2.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Characters/Textures/Player/knight_m_idle_anim_f3.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/Characters/Textures/Player/knight_m_run_anim_f0.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/Characters/Textures/Player/knight_m_run_anim_f1.png" type="Texture" id=7]
-[ext_resource path="res://Scenes/Characters/Textures/Player/knight_m_run_anim_f2.png" type="Texture" id=8]
-[ext_resource path="res://Scenes/Characters/Textures/Player/knight_m_run_anim_f3.png" type="Texture" id=9]
-[ext_resource path="res://Scenes/Characters/Textures/Player/knight_m_run_anim_dash_f0.png" type="Texture" id=10]
-[ext_resource path="res://Scenes/Characters/Textures/Player/knight_m_run_anim_dash_f1.png" type="Texture" id=11]
-[ext_resource path="res://Scenes/Characters/Textures/Player/knight_m_run_anim_dash_f2.png" type="Texture" id=12]
-[ext_resource path="res://Scenes/Characters/Textures/Player/knight_m_run_anim_dash_f3.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/Characters/Textures/Player/knight_m_run_anim_dash_f0.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Characters/Textures/Player/knight_m_run_anim_dash_f1.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Characters/Textures/Player/knight_m_run_anim_dash_f2.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Characters/Textures/Player/knight_m_run_anim_dash_f3.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Characters/Textures/Player/knight_m_run_anim_f0.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Characters/Textures/Player/knight_m_run_anim_f1.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/Characters/Textures/Player/knight_m_run_anim_f2.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/Characters/Textures/Player/knight_m_run_anim_f3.png" type="Texture" id=13]
 [ext_resource path="res://Scenes/Characters/Textures/Player/knight_m_hit_anim_f0.png" type="Texture" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -24,12 +24,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
-"name": "run",
+"name": "dash",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
 "loop": true,
-"name": "dash",
+"name": "run",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 14 ) ],
@@ -53,7 +53,7 @@ position = Vector2( -0.0898547, -14.6493 )
 scale = Vector2( 3.7615, 3.7615 )
 frames = SubResource( 1 )
 animation = "dash"
-frame = 3
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
