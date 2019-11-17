@@ -14,7 +14,7 @@ func _ready():
 
 
 func _on_Button_Start_pressed():
-	get_tree().change_scene("res://Scenes/maps/test.tscn")
+	get_tree().change_scene("res://Scenes/maps/Level1.tscn")
 
 
 func _on_Button_Options_pressed():

@@ -9,7 +9,7 @@
 script/source = "extends Node2D
 
 func _on_Player_dash_against_wall():
-	get_tree().change_scene(\"res://Scenes/maps/Level1_OtherWorld.tscn\")
+	get_tree().change_scene(\"res://Scenes/maps/Level1.tscn\")
 "
 
 [node name="SceneRoot" type="Node2D"]
