@@ -25,7 +25,7 @@ func get_input(delta):
 	if Input.is_action_pressed('up'):
 		velocity.y -= 1
 	
-	if Input.is_action_pressed("dash") and !is_dashing:
+	if Input.is_action_pressed("dash") and !is_dashing and velocity.length() > 0:
 		dash()
 	
 	if velocity.length() > 0:
