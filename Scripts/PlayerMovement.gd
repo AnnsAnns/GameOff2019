@@ -35,7 +35,7 @@ func get_input(delta):
 		$AnimatedSprite.animation = "dash"
 		$AnimatedSprite.flip_h = velocity.x < 0
 	elif is_dashing:
-		pass # TO-DO: Add Idle Animation for dashing cooldown
+		$AnimatedSprite.animation = "idle_dash"
 	elif velocity.x != 0:
 	    $AnimatedSprite.animation = "run"
 	    $AnimatedSprite.flip_h = velocity.x < 0
